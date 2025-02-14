@@ -1,4 +1,8 @@
+import Footer from "@/components/Footer";
+import Hearders from "@/components/Hearders";
+import Loading from "@/components/Loading";
 import localFont from "next/font/local";
+import { Suspense } from "react";
 import "./globals.css";
 
 const geistSans = localFont({
@@ -23,7 +27,11 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <Hearders />
+        <Suspense fallback={<Loading />}>
+          <div className="bg-white">{children}</div>
+        </Suspense>
+        <Footer />
       </body>
     </html>
   );
