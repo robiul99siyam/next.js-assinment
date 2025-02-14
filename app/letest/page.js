@@ -1,6 +1,6 @@
 import LestestRecipes from "@/components/LETEST/LestestRecipes";
 
-export default function page() {
+export default function Letestpage() {
   return (
     <div>
       <LestestRecipes />

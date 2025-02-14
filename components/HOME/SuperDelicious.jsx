@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import Rating from "../Rating";
 
 export default function SuperDelicious({ recipeses, category }) {
@@ -20,37 +21,33 @@ export default function SuperDelicious({ recipeses, category }) {
         {tempArray.map((recipe) => (
           <>
             {" "}
-            <div key={recipe.category_id}>
-              {category.map(
-                (category) =>
-                  category.id === recipe.category_id && (
-                    <>
-                      <Image
-                        key={category.id}
-                        src={`http://localhost:3000${category.image}`}
-                        alt="Recipe Image"
-                        className="w-full h-48 object-cover rounded-lg mb-4"
-                        width={500}
-                        height={500}
-                        // layout="responsive"
-                      />
-                    </>
-                  )
-              )}
+            <Link href={`/categorys/${recipe.category_id}`}>
+              {" "}
+              <div>
+                <Image
+                  key={category.id}
+                  src={`http://localhost:3000/thumbs/${recipe.thumbnail}`}
+                  alt="Recipe Image"
+                  className="w-full h-48 object-cover rounded-lg mb-4"
+                  width={500}
+                  height={500}
+                  // layout="responsive"
+                />
 
-              <h3 className="text-xl font-semibold mb-2">{recipe.title}</h3>
-              <div className="flex items-center text-yellow-500 mb-2">
-                {Array(Math.floor(recipe.rating.average_rating))
-                  .fill(null)
-                  .map((_, index) => (
-                    <>
-                      {" "}
-                      <Rating key={index} />
-                    </>
-                  ))}
+                <h3 className="text-xl font-semibold mb-2">{recipe.title}</h3>
+                <div className="flex items-center text-yellow-500 mb-2">
+                  {Array(Math.floor(recipe.rating.average_rating))
+                    .fill(null)
+                    .map((_, index) => (
+                      <>
+                        {" "}
+                        <Rating key={index} />
+                      </>
+                    ))}
+                </div>
+                <p>{recipe.published_date}</p>
               </div>
-              <p>{recipe.published_date}</p>
-            </div>
+            </Link>
           </>
         ))}
       </div>

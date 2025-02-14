@@ -3,14 +3,16 @@ import { recipes } from "@/data/recipes";
 import Image from "next/image";
 export default function LestestRecipes() {
   return (
-    <main class="container mx-auto px-4 py-8 mt-[100px]">
-      <div class="flex justify-between items-center mb-8">
+    <main className="container mx-auto px-4 py-8 mt-[100px]">
+      <div className="flex justify-between items-center mb-8">
         <div>
-          <h1 class="text-4xl font-bold mb-2">
+          <h1 className="text-4xl font-bold mb-2">
             Desserts{" "}
-            <span class="text-gray-500 text-2xl font-normal">(98 Recipes)</span>
+            <span className="text-gray-500 text-2xl font-normal">
+              (98 Recipes)
+            </span>
           </h1>
-          <p class="text-gray-600">
+          <p className="text-gray-600">
             One thing I learned living in the Canarsie section of Brooklyn, NY
             was how to cook a good Italian meal. Here is a recipe I created
             after having this dish in a restaurant. Enjoy!
@@ -18,7 +20,7 @@ export default function LestestRecipes() {
         </div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {recipes.map((recipe) => (
           <>
             {" "}
@@ -31,7 +33,7 @@ export default function LestestRecipes() {
                         key={categorys.id}
                         src={`http://localhost:3000${categorys.image}`}
                         alt="Recipe Image"
-                        className="w-full h-48 object-cover rounded-lg mb-4"
+                        classNameName="w-full h-48 object-cover rounded-lg mb-4"
                         width={500}
                         height={500}
                         // layout="responsive"
@@ -40,8 +42,8 @@ export default function LestestRecipes() {
                   )
               )}
 
-              <h3 class="text-lg font-semibold mb-2">{recipe.title}</h3>
-              <p class="text-gray-600">{recipe.author}</p>
+              <h3 className="text-lg font-semibold mb-2">{recipe.title}</h3>
+              <p className="text-gray-600">{recipe.author}</p>
             </div>
           </>
         ))}
